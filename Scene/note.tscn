@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://cng5orsp4kam4"]
+
+[ext_resource type="Texture2D" uid="uid://dxh56o1t2anxb" path="res://Assets/Borrowed/rhythm assets/arrow_button_left3.png" id="1_pl4jy"]
+[ext_resource type="Script" path="res://Scenes/Rhythm/note.gd" id="1_wfukv"]
+[ext_resource type="Texture2D" uid="uid://ckq1gy7ri3ksf" path="res://Assets/Borrowed/rhythm assets/arrow_button_up3.png" id="2_gtfy2"]
+[ext_resource type="Texture2D" uid="uid://xhrd3m3eg22s" path="res://Assets/Borrowed/rhythm assets/arrow_button_right3.png" id="3_au0at"]
+[ext_resource type="Texture2D" uid="uid://dy7f12ac4wxpd" path="res://Assets/Borrowed/rhythm assets/star.png" id="5_cufjw"]
+[ext_resource type="FontFile" uid="uid://ue2m4xgavq6m" path="res://Assets/Borrowed/Fonts/m5x7.ttf" id="6_jpapd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6vr7"]
+atlas = ExtResource("1_pl4jy")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbpu4"]
+atlas = ExtResource("2_gtfy2")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i4f0"]
+atlas = ExtResource("3_au0at")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3s678"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6vr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbpu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i4f0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbur6"]
+
+[node name="Note" type="Area2D" groups=["note"]]
+script = ExtResource("1_wfukv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3s678")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tbur6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.8
+texture = ExtResource("5_cufjw")
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D" groups=["note"]]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_jpapd")
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

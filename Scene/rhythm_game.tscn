@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=3 uid="uid://ckk4ihahe7j05"]
+
+[ext_resource type="Script" path="res://Scenes/Rhythm/rhythm_game.gd" id="1_ql54a"]
+[ext_resource type="PackedScene" uid="uid://c5r28gfcihxqg" path="res://Scenes/Rhythm/conductor.tscn" id="1_qqwdq"]
+[ext_resource type="PackedScene" uid="uid://hbvn40flrfwa" path="res://Scenes/Rhythm/arrow_button.tscn" id="2_t252p"]
+[ext_resource type="Texture2D" uid="uid://54smkq36gdae" path="res://Assets/Borrowed/rhythm assets/road.png" id="2_x0u48"]
+[ext_resource type="Texture2D" uid="uid://db0mp4a2fr7aq" path="res://Assets/Borrowed/rhythm assets/arrow_button_left1.png" id="3_yqm72"]
+[ext_resource type="Texture2D" uid="uid://pjdo8b4vq4yx" path="res://Assets/Borrowed/rhythm assets/arrow_button_left2.png" id="4_d6vvv"]
+[ext_resource type="Texture2D" uid="uid://dgyd7q7vhki03" path="res://Assets/Borrowed/rhythm assets/arrow_button_right1.png" id="5_8cank"]
+[ext_resource type="Texture2D" uid="uid://c741j7hqo7u6m" path="res://Assets/Borrowed/rhythm assets/arrow_button_right2.png" id="6_dcajv"]
+[ext_resource type="FontFile" uid="uid://ue2m4xgavq6m" path="res://Assets/Borrowed/Fonts/m5x7.ttf" id="8_83ahq"]
+[ext_resource type="FontFile" uid="uid://q411ts3sa2ao" path="res://Assets/Borrowed/Fonts/monogram/ttf/monogram.ttf" id="9_iy31e"]
+[ext_resource type="Script" path="res://Scenes/Rhythm/Success.gd" id="10_gget0"]
+[ext_resource type="FontFile" uid="uid://7q0kouyp54oy" path="res://Assets/Borrowed/Fonts/salmon-typewriter-font/Salmon Typewriter fonts/Salmon Typewriter 9 Regular.ttf" id="10_qja87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnfy3"]
+atlas = ExtResource("3_yqm72")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7wuw"]
+atlas = ExtResource("4_d6vvv")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuwx2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnfy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7wuw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h21iv"]
+atlas = ExtResource("5_8cank")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js8jj"]
+atlas = ExtResource("6_dcajv")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ma0y5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h21iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js8jj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RhythmGame" type="Node2D"]
+position = Vector2(-219, -190)
+scale = Vector2(1.97244, 2.10101)
+script = ExtResource("1_ql54a")
+bpm = 252
+
+[node name="ArrowLeft" parent="." instance=ExtResource("2_t252p")]
+position = Vector2(194.988, 239.701)
+sprite_frames = SubResource("SpriteFrames_cuwx2")
+frame = 0
+frame_progress = 0.0
+input = "left"
+
+[node name="ArrowUp" parent="." instance=ExtResource("2_t252p")]
+position = Vector2(234.533, 239.701)
+frame_progress = 1.0
+input = "up"
+
+[node name="ArrowRight" parent="." instance=ExtResource("2_t252p")]
+position = Vector2(276.106, 239.701)
+sprite_frames = SubResource("SpriteFrames_ma0y5")
+frame = 0
+frame_progress = 0.0
+input = "right"
+
+[node name="Road" type="Sprite2D" parent="."]
+position = Vector2(235.417, 172.817)
+texture = ExtResource("2_x0u48")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 115.0
+offset_top = 94.24
+offset_right = 155.0
+offset_bottom = 117.24
+theme_override_fonts/font = ExtResource("8_83ahq")
+
+[node name="Combo" type="Label" parent="."]
+offset_left = 115.593
+offset_top = 122.322
+offset_right = 155.593
+offset_bottom = 145.322
+theme_override_colors/font_color = Color(0.913725, 0.368627, 0.482353, 1)
+theme_override_fonts/font = ExtResource("8_83ahq")
+
+[node name="Beat" type="Label" parent="."]
+visible = false
+offset_left = 315.852
+offset_top = 95.1923
+offset_right = 355.852
+offset_bottom = 118.192
+theme_override_fonts/font = ExtResource("9_iy31e")
+
+[node name="Conductor" parent="." instance=ExtResource("1_qqwdq")]
+
+[node name="Success" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("10_gget0")
+
+[node name="ColorRect" type="ColorRect" parent="Success"]
+offset_right = 478.0
+offset_bottom = 359.0
+color = Color(0.972549, 0.937255, 0.866667, 0.784314)
+
+[node name="Label" type="Label" parent="Success"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -63.0
+offset_right = 173.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_qja87")
+text = "Hooray!! You completed the experimental rhythm game!"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Success"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 16.0
+offset_right = 135.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_qja87")
+text = "Press here to return!
+"
+
+[connection signal="visibility_changed" from="Success" to="Success" method="_on_visibility_changed"]
+[connection signal="pressed" from="Success/Button" to="Success" method="_on_button_pressed"]
