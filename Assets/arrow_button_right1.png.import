@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgyd7q7vhki03"
-path="res://.godot/imported/arrow_button_right1.png-636047d35b8ccda096888a3c38ea81d8.ctex"
+path="res://.godot/imported/arrow_button_right1.png-c0114e2f415cfb6a46149a1e61aef4f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Borrowed/rhythm assets/arrow_button_right1.png"
-dest_files=["res://.godot/imported/arrow_button_right1.png-636047d35b8ccda096888a3c38ea81d8.ctex"]
+source_file="res://Assets/arrow_button_right1.png"
+dest_files=["res://.godot/imported/arrow_button_right1.png-c0114e2f415cfb6a46149a1e61aef4f5.ctex"]
 
 [params]
 

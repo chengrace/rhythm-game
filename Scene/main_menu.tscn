@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://163hsrmq46ho"]
+
+[ext_resource type="Texture2D" uid="uid://dqovihtnasub1" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 2/1.png" id="1_7bq8o"]
+[ext_resource type="Theme" uid="uid://b1h3lj3wljia2" path="res://theme.tres" id="1_76ta0"]
+[ext_resource type="Script" path="res://Script/main_menu.gd" id="1_g414v"]
+[ext_resource type="Texture2D" uid="uid://bht3rrrsnj6bh" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 5/5.png" id="2_c12gl"]
+[ext_resource type="AudioStream" uid="uid://dhy8x3dqlh1pk" path="res://Songs/my beepbops/intro.wav" id="4_o0cc3"]
+[ext_resource type="Script" path="res://Script/camera.gd" id="5_j2hfk"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_g414v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1151.0
+offset_bottom = 651.0
+color = Color(0.266667, 0.4, 0.890196, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(577, 325)
+scale = Vector2(2, 1.98765)
+texture = ExtResource("1_7bq8o")
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(1150, 2.08165e-12)
+motion_mirroring = Vector2(320, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(860, 486)
+scale = Vector2(1.01042, 1)
+texture = ExtResource("2_c12gl")
+
+[node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1470, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds2"]
+position = Vector2(289, 486)
+texture = ExtResource("2_c12gl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_o0cc3")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 320)
+script = ExtResource("5_j2hfk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 463.0
+offset_top = 170.0
+offset_right = 826.0
+offset_bottom = 211.0
+theme = ExtResource("1_76ta0")
+theme_override_font_sizes/font_size = 50
+text = "a simple rhythm game"
+
+[node name="PlayButton" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 626.0
+offset_top = 266.0
+offset_right = 700.0
+offset_bottom = 315.0
+theme = ExtResource("1_76ta0")
+theme_override_font_sizes/font_size = 50
+text = "play"
+
+[connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_play_button_pressed"]

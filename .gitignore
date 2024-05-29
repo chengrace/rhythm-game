@@ -1,2 +1,2 @@
-.DS_Store
-/Songs
+# Godot 4+ specific ignores
+.godot/

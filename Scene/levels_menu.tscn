@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4komw5s2yymc"]
+
+[ext_resource type="Texture2D" uid="uid://dftts74oe1ssa" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/1.png" id="1_2kg0o"]
+[ext_resource type="Script" path="res://Script/levels_menu.gd" id="1_tak4j"]
+[ext_resource type="Texture2D" uid="uid://dy0f7ga6xtrvn" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/4.png" id="2_r0ogs"]
+[ext_resource type="Texture2D" uid="uid://di6o8u5suecnt" path="res://Assets/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/5.png" id="3_ftspk"]
+[ext_resource type="Script" path="res://Script/camera.gd" id="5_w3l08"]
+[ext_resource type="AudioStream" uid="uid://d1e6ux33jo3x" path="res://Songs/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="6_215fl"]
+
+[node name="LevelsMenu" type="Node2D"]
+script = ExtResource("1_tak4j")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(577, 325)
+scale = Vector2(2, 1.98765)
+texture = ExtResource("1_2kg0o")
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(1150, 2.08165e-12)
+motion_mirroring = Vector2(320, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(860, 486)
+scale = Vector2(1.01042, 1)
+texture = ExtResource("2_r0ogs")
+
+[node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1470, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds2"]
+position = Vector2(289, 486)
+texture = ExtResource("3_ftspk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 320)
+script = ExtResource("5_w3l08")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_215fl")
