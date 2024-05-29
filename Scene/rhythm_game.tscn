@@ -1,17 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckk4ihahe7j05"]
+[gd_scene load_steps=23 format=3 uid="uid://dlulbqbini475"]
 
-[ext_resource type="Script" path="res://Scenes/Rhythm/rhythm_game.gd" id="1_ql54a"]
-[ext_resource type="PackedScene" uid="uid://c5r28gfcihxqg" path="res://Scenes/Rhythm/conductor.tscn" id="1_qqwdq"]
-[ext_resource type="PackedScene" uid="uid://hbvn40flrfwa" path="res://Scenes/Rhythm/arrow_button.tscn" id="2_t252p"]
-[ext_resource type="Texture2D" uid="uid://54smkq36gdae" path="res://Assets/Borrowed/rhythm assets/road.png" id="2_x0u48"]
-[ext_resource type="Texture2D" uid="uid://db0mp4a2fr7aq" path="res://Assets/Borrowed/rhythm assets/arrow_button_left1.png" id="3_yqm72"]
-[ext_resource type="Texture2D" uid="uid://pjdo8b4vq4yx" path="res://Assets/Borrowed/rhythm assets/arrow_button_left2.png" id="4_d6vvv"]
-[ext_resource type="Texture2D" uid="uid://dgyd7q7vhki03" path="res://Assets/Borrowed/rhythm assets/arrow_button_right1.png" id="5_8cank"]
-[ext_resource type="Texture2D" uid="uid://c741j7hqo7u6m" path="res://Assets/Borrowed/rhythm assets/arrow_button_right2.png" id="6_dcajv"]
-[ext_resource type="FontFile" uid="uid://ue2m4xgavq6m" path="res://Assets/Borrowed/Fonts/m5x7.ttf" id="8_83ahq"]
-[ext_resource type="FontFile" uid="uid://q411ts3sa2ao" path="res://Assets/Borrowed/Fonts/monogram/ttf/monogram.ttf" id="9_iy31e"]
-[ext_resource type="Script" path="res://Scenes/Rhythm/Success.gd" id="10_gget0"]
-[ext_resource type="FontFile" uid="uid://7q0kouyp54oy" path="res://Assets/Borrowed/Fonts/salmon-typewriter-font/Salmon Typewriter fonts/Salmon Typewriter 9 Regular.ttf" id="10_qja87"]
+[ext_resource type="Script" path="res://Script/level_one.gd" id="1_ql54a"]
+[ext_resource type="PackedScene" uid="uid://c5r28gfcihxqg" path="res://Scene/conductor.tscn" id="1_qqwdq"]
+[ext_resource type="PackedScene" uid="uid://hbvn40flrfwa" path="res://Scene/arrow_button.tscn" id="2_t252p"]
+[ext_resource type="Texture2D" uid="uid://54smkq36gdae" path="res://Assets/road.png" id="2_x0u48"]
+[ext_resource type="Texture2D" uid="uid://db0mp4a2fr7aq" path="res://Assets/arrow_button_left1.png" id="3_yqm72"]
+[ext_resource type="Texture2D" uid="uid://pjdo8b4vq4yx" path="res://Assets/arrow_button_left2.png" id="4_d6vvv"]
+[ext_resource type="Texture2D" uid="uid://dgyd7q7vhki03" path="res://Assets/arrow_button_right1.png" id="5_8cank"]
+[ext_resource type="Texture2D" uid="uid://c741j7hqo7u6m" path="res://Assets/arrow_button_right2.png" id="6_dcajv"]
+[ext_resource type="FontFile" uid="uid://bkrio57h2k6il" path="res://Fonts/m5x7.ttf" id="8_83ahq"]
+[ext_resource type="Theme" uid="uid://b1h3lj3wljia2" path="res://theme.tres" id="8_hw8ye"]
+[ext_resource type="FontFile" uid="uid://cuubp1nndxstg" path="res://Fonts/monogram.ttf" id="9_iy31e"]
+[ext_resource type="Script" path="res://Script/Success.gd" id="10_gget0"]
+[ext_resource type="FontFile" uid="uid://degt7cnpjuxpo" path="res://Fonts/Salmon Typewriter 9 Regular.ttf" id="10_qja87"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnfy3"]
 atlas = ExtResource("3_yqm72")
@@ -30,9 +31,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k7wuw")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h21iv"]
@@ -52,10 +53,47 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_js8jj")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
+
+[sub_resource type="Animation" id="Animation_spwcy"]
+resource_name = "color_show"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 3, 4.8, 6.8, 8.8, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.333333, 0.301961, 1, 1), Color(1, 0.168627, 1, 1), Color(0.113725, 0.101961, 0.254902, 1), Color(0.396078, 0.356863, 1, 1), Color(1, 0.14902, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vuwlm"]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6yt1"]
+_data = {
+"color_show": SubResource("Animation_spwcy"),
+"reset": SubResource("Animation_vuwlm")
+}
 
 [node name="RhythmGame" type="Node2D"]
 position = Vector2(-219, -190)
@@ -63,27 +101,40 @@ scale = Vector2(1.97244, 2.10101)
 script = ExtResource("1_ql54a")
 bpm = 252
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 84.0
+offset_top = 73.0
+offset_right = 127.0
+offset_bottom = 118.0
+scale = Vector2(14.4881, 7.63583)
+color = Color(0.152941, 0.152941, 0.329412, 1)
+
 [node name="ArrowLeft" parent="." instance=ExtResource("2_t252p")]
-position = Vector2(194.988, 239.701)
+position = Vector2(324, 370)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_cuwx2")
 frame = 0
 frame_progress = 0.0
 input = "left"
 
 [node name="ArrowUp" parent="." instance=ExtResource("2_t252p")]
-position = Vector2(234.533, 239.701)
-frame_progress = 1.0
+position = Vector2(394, 370)
+scale = Vector2(1.5, 1.5)
+frame = 0
+frame_progress = 0.0
 input = "up"
 
 [node name="ArrowRight" parent="." instance=ExtResource("2_t252p")]
-position = Vector2(276.106, 239.701)
+position = Vector2(468, 369.822)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ma0y5")
 frame = 0
 frame_progress = 0.0
 input = "right"
 
 [node name="Road" type="Sprite2D" parent="."]
-position = Vector2(235.417, 172.817)
+position = Vector2(394.435, 241.312)
+scale = Vector2(1.81503, 1.75892)
 texture = ExtResource("2_x0u48")
 
 [node name="Label" type="Label" parent="."]
@@ -91,35 +142,47 @@ offset_left = 115.0
 offset_top = 94.24
 offset_right = 155.0
 offset_bottom = 117.24
+theme = ExtResource("8_hw8ye")
 theme_override_fonts/font = ExtResource("8_83ahq")
+theme_override_font_sizes/font_size = 40
 
 [node name="Combo" type="Label" parent="."]
 offset_left = 115.593
 offset_top = 122.322
 offset_right = 155.593
 offset_bottom = 145.322
+theme = ExtResource("8_hw8ye")
 theme_override_colors/font_color = Color(0.913725, 0.368627, 0.482353, 1)
 theme_override_fonts/font = ExtResource("8_83ahq")
+theme_override_font_sizes/font_size = 30
 
 [node name="Beat" type="Label" parent="."]
-visible = false
-offset_left = 315.852
-offset_top = 95.1923
-offset_right = 355.852
-offset_bottom = 118.192
+offset_left = 606.863
+offset_top = 99.476
+offset_right = 646.863
+offset_bottom = 140.476
+theme = ExtResource("8_hw8ye")
 theme_override_fonts/font = ExtResource("9_iy31e")
+theme_override_font_sizes/font_size = 50
 
 [node name="Conductor" parent="." instance=ExtResource("1_qqwdq")]
 
 [node name="Success" type="CanvasLayer" parent="."]
 process_mode = 2
-visible = false
 script = ExtResource("10_gget0")
 
 [node name="ColorRect" type="ColorRect" parent="Success"]
-offset_right = 478.0
-offset_bottom = 359.0
+anchors_preset = -1
+anchor_left = -0.165
+anchor_top = -0.07
+anchor_right = -0.165
+anchor_bottom = -0.07
+offset_left = 154.08
+offset_top = 29.36
+offset_right = 1353.08
+offset_bottom = 714.36
 color = Color(0.972549, 0.937255, 0.866667, 0.784314)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Success"]
 anchors_preset = 8
@@ -134,8 +197,10 @@ offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("10_qja87")
-text = "Hooray!! You completed the experimental rhythm game!"
+text = "Hooray!! You completed this level!"
+horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Success"]
 anchors_preset = 8
@@ -150,8 +215,16 @@ offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("10_qja87")
-text = "Press here to return!
+text = "Return to levels menu
 "
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b6yt1")
+}
 
 [connection signal="visibility_changed" from="Success" to="Success" method="_on_visibility_changed"]
 [connection signal="pressed" from="Success/Button" to="Success" method="_on_button_pressed"]

@@ -32,7 +32,7 @@ func _unhandled_input(event):
 		# no matter if the note is over matches, the arrow is shown to be clicked
 		if event.is_action_pressed(input):
 			frame = 1
-		# give a second before the game registers the next player input
+		# give a second for the arrow to look pressed
 		elif event.is_action_released(input):
 			$PushTimer.start()
 

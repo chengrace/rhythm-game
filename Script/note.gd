@@ -1,13 +1,13 @@
 ## rhythm/note.gd
 extends Area2D
 
-const TARGET_Y = 240
+const TARGET_Y = 370
 const SPAWN_Y = -16
 const DIST_TO_TARGET = TARGET_Y - SPAWN_Y
 
-const LEFT_LANE_SPAWN = Vector2(194, SPAWN_Y)
-const CENTRE_LANE_SPAWN = Vector2(234, SPAWN_Y)
-const RIGHT_LANE_SPAWN = Vector2(276, SPAWN_Y)
+const LEFT_LANE_SPAWN = Vector2(324, SPAWN_Y)
+const CENTRE_LANE_SPAWN = Vector2(394, SPAWN_Y)
+const RIGHT_LANE_SPAWN = Vector2(468, SPAWN_Y)
 
 var speed = 0
 var hit = false
@@ -15,7 +15,7 @@ var hit = false
 func _physics_process(delta):
 	if !hit:
 		position.y += speed * delta
-		if position.y > 300: #note reaches bottom of screen
+		if position.y > 400: #note reaches bottom of screen
 			#$DeathTimer.start()
 			#$Node2D.position = Vector2(0, -20)
 			#$Node2D/Label.text = "MISS"

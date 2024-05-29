@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cng5orsp4kam4"]
+[gd_scene load_steps=13 format=3 uid="uid://cng5orsp4kam4"]
 
-[ext_resource type="Texture2D" uid="uid://dxh56o1t2anxb" path="res://Assets/Borrowed/rhythm assets/arrow_button_left3.png" id="1_pl4jy"]
-[ext_resource type="Script" path="res://Scenes/Rhythm/note.gd" id="1_wfukv"]
-[ext_resource type="Texture2D" uid="uid://ckq1gy7ri3ksf" path="res://Assets/Borrowed/rhythm assets/arrow_button_up3.png" id="2_gtfy2"]
-[ext_resource type="Texture2D" uid="uid://xhrd3m3eg22s" path="res://Assets/Borrowed/rhythm assets/arrow_button_right3.png" id="3_au0at"]
-[ext_resource type="Texture2D" uid="uid://dy7f12ac4wxpd" path="res://Assets/Borrowed/rhythm assets/star.png" id="5_cufjw"]
-[ext_resource type="FontFile" uid="uid://ue2m4xgavq6m" path="res://Assets/Borrowed/Fonts/m5x7.ttf" id="6_jpapd"]
+[ext_resource type="Texture2D" uid="uid://dxh56o1t2anxb" path="res://Assets/arrow_button_left3.png" id="1_pl4jy"]
+[ext_resource type="Script" path="res://Script/note.gd" id="1_wfukv"]
+[ext_resource type="Texture2D" uid="uid://ckq1gy7ri3ksf" path="res://Assets/arrow_button_up3.png" id="2_gtfy2"]
+[ext_resource type="Texture2D" uid="uid://xhrd3m3eg22s" path="res://Assets/arrow_button_right3.png" id="3_au0at"]
+[ext_resource type="Texture2D" uid="uid://dy7f12ac4wxpd" path="res://Assets/star.png" id="5_cufjw"]
+[ext_resource type="Theme" uid="uid://b1h3lj3wljia2" path="res://theme.tres" id="6_cks1b"]
+[ext_resource type="FontFile" uid="uid://bkrio57h2k6il" path="res://Fonts/m5x7.ttf" id="6_jpapd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6vr7"]
 atlas = ExtResource("1_pl4jy")
@@ -42,6 +43,7 @@ animations = [{
 script = ExtResource("1_wfukv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_3s678")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -72,6 +74,8 @@ one_shot = true
 [node name="Label" type="Label" parent="Node2D" groups=["note"]]
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("6_cks1b")
 theme_override_fonts/font = ExtResource("6_jpapd")
+theme_override_font_sizes/font_size = 30
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

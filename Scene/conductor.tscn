@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5r28gfcihxqg"]
 
-[ext_resource type="Script" path="res://Scenes/Rhythm/conductor.gd" id="1_4ab67"]
-[ext_resource type="AudioStream" uid="uid://c8am1wju6m5wl" path="res://Assets/Borrowed/Love Corrida - Kavka Shishido.mp3" id="1_e47ga"]
+[ext_resource type="Script" path="res://Script/conductor.gd" id="1_4ab67"]
+[ext_resource type="AudioStream" uid="uid://5tvg33ei1ins" path="res://Songs/Love Corrida - Kavka Shishido.mp3" id="1_e47ga"]
 
 [node name="Conductor" type="AudioStreamPlayer"]
 stream = ExtResource("1_e47ga")

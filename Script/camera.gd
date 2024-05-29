@@ -1,4 +1,8 @@
 extends Camera2D
 
+@export var camera_on = false
+@export var speed = 100
+
 func _physics_process(delta):
-	position += Vector2(100 * delta, 0) # Moves the camera right every fram
+	if camera_on:
+		position += Vector2(speed * delta, 0) # Moves the camera right every fram

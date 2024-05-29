@@ -11,12 +11,13 @@
 script = ExtResource("1_g414v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
+offset_top = -16.0
 offset_right = 1151.0
 offset_bottom = 651.0
 color = Color(0.266667, 0.4, 0.890196, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2.08165e-12, 2.08165e-12)
@@ -51,6 +52,8 @@ autoplay = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 320)
 script = ExtResource("5_j2hfk")
+camera_on = true
+speed = 20
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
