@@ -40,10 +40,8 @@ func _ready():
 	print("starting")
 
 func _input(event):
-	#if event.is_action("escape"):
-		#if get_tree().change_scene("res://Scenes/Menu.tscn") != OK:
-			#print ("Error changing scene to Menu")
-	pass
+	if event.is_action("escape"):
+		PauseMenu.show_pause_menu()
 
 func _on_Conductor_measure(position):
 	if position == 1:
@@ -56,11 +54,16 @@ func _on_Conductor_measure(position):
 		_spawn_notes(spawn_4_beat)
 
 func _on_Conductor_beat(position):
-	$Beat.text = str(position)
+	$Beat.text = str(position/2)
 	song_position_in_beats = position
-	if song_position_in_beats > 20*2:
+	if song_position_in_beats > 12*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	if song_position_in_beats > 20*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 0
 	if song_position_in_beats > 50*2:

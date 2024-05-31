@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://mndlns1g3d6t"]
+
+[ext_resource type="Script" path="res://Script/pause_menu.gd" id="1_g0wvv"]
+[ext_resource type="Theme" uid="uid://b1h3lj3wljia2" path="res://theme.tres" id="2_wyrgy"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
+visible = false
+script = ExtResource("1_g0wvv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -34.0
+offset_top = -22.0
+offset_right = 1180.0
+offset_bottom = 668.0
+color = Color(0.352941, 0.352941, 0.352941, 0.360784)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -168.0
+offset_right = 171.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wyrgy")
+theme_override_font_sizes/font_size = 150
+text = "PAUSED"
+
+[node name="Resume" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -23.5
+offset_right = 76.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wyrgy")
+theme_override_font_sizes/font_size = 50
+text = "Resume?"
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.591
+offset_left = -45.0
+offset_top = 38.0
+offset_right = 51.0
+offset_bottom = 24.21
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wyrgy")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Countdown" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wyrgy")
+theme_override_font_sizes/font_size = 100
+
+[connection signal="pressed" from="ColorRect/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/Quit" to="." method="_on_main_menu_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
