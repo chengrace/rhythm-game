@@ -168,6 +168,7 @@ theme_override_font_sizes/font_size = 50
 
 [node name="Success" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 script = ExtResource("12_3w6iw")
 
 [node name="ColorRect" type="ColorRect" parent="Success"]
@@ -225,5 +226,4 @@ libraries = {
 "": SubResource("AnimationLibrary_b6yt1")
 }
 
-[connection signal="visibility_changed" from="Success" to="Success" method="_on_visibility_changed"]
 [connection signal="pressed" from="Success/Button" to="Success" method="_on_button_pressed"]

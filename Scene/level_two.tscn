@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cs43223kiy1uu"]
+[gd_scene load_steps=33 format=3 uid="uid://cs43223kiy1uu"]
 
 [ext_resource type="Script" path="res://Script/level_two.gd" id="1_0ihp3"]
 [ext_resource type="PackedScene" uid="uid://hbvn40flrfwa" path="res://Scene/arrow_button.tscn" id="2_cd6b1"]
@@ -14,6 +14,12 @@
 [ext_resource type="Script" path="res://Script/Success.gd" id="12_3w6iw"]
 [ext_resource type="AudioStream" uid="uid://cnvmti57gfejb" path="res://Songs/NewJeans 'How Sweet' Lyrics (뉴진스 How Sweet 가사) (Color Coded Lyrics).mp3" id="12_byvbg"]
 [ext_resource type="FontFile" uid="uid://degt7cnpjuxpo" path="res://Fonts/Salmon Typewriter 9 Regular.ttf" id="13_0ig7q"]
+[ext_resource type="Texture2D" uid="uid://cctrngbbegtp1" path="res://Assets/nj/static-assets-upload12928972179934070556.webp" id="15_m73o4"]
+[ext_resource type="Texture2D" uid="uid://cx5tyuugc8co4" path="res://Assets/nj/static-assets-upload12981402197799725477.webp" id="16_1u5vj"]
+[ext_resource type="Texture2D" uid="uid://x7r0rqhy6jve" path="res://Assets/nj/static-assets-upload13734985415645353858.webp" id="17_3f45j"]
+[ext_resource type="Texture2D" uid="uid://diqomeo5y6u1f" path="res://Assets/nj/static-assets-upload14558889121241066519.webp" id="18_atjhj"]
+[ext_resource type="Texture2D" uid="uid://1porq2rikn" path="res://Assets/nj/static-assets-upload18200193509792552775.webp" id="19_g1ct4"]
+[ext_resource type="Texture2D" uid="uid://i686ko541p7f" path="res://Assets/nj/0.webp" id="20_fv4dy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnfy3"]
 atlas = ExtResource("3_b21ge")
@@ -89,10 +95,204 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/hyein:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-451, -48)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/minji:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(177, 1004)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/haerin:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2707, -552)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/hanni:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-493, 478)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/danielle:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1062, 999)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/group:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(748, -569)]
+}
+
+[sub_resource type="Animation" id="Animation_8vyvb"]
+resource_name = "fly"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/hyein:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-451, -48), Vector2(1335, 764)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/hanni:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.2, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-493, 478), Vector2(1806, -303)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/minji:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.3, 12.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(177, 1004), Vector2(340, -191)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/danielle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8, 14.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1062, 999), Vector2(-182, -131)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/haerin:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(9, 19.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2707, -552), Vector2(-58, 958)]
+}
+
+[sub_resource type="Animation" id="Animation_5tqek"]
+resource_name = "group_circle"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/group:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(748, -569), Vector2(490, 1574)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/group:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -4.69843]
+}
+
+[sub_resource type="Animation" id="Animation_gi2lj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/group:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(748, -569)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/group:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6yt1"]
 _data = {
+"RESET": SubResource("Animation_gi2lj"),
 "color_show": SubResource("Animation_spwcy"),
+"fly": SubResource("Animation_8vyvb"),
+"group_circle": SubResource("Animation_5tqek"),
 "reset": SubResource("Animation_vuwlm")
 }
 
@@ -111,6 +311,7 @@ scale = Vector2(14.4881, 7.63583)
 color = Color(0.94902, 0.717647, 0.717647, 1)
 
 [node name="ArrowLeft" parent="." instance=ExtResource("2_cd6b1")]
+modulate = Color(0.956863, 0.560784, 0.976471, 1)
 position = Vector2(324, 370)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_d3ads")
@@ -119,6 +320,7 @@ frame_progress = 0.0
 input = "left"
 
 [node name="ArrowUp" parent="." instance=ExtResource("2_cd6b1")]
+modulate = Color(0.956863, 0.560784, 0.976471, 1)
 position = Vector2(394, 370)
 scale = Vector2(1.5, 1.5)
 frame = 0
@@ -126,6 +328,7 @@ frame_progress = 0.0
 input = "up"
 
 [node name="ArrowRight" parent="." instance=ExtResource("2_cd6b1")]
+modulate = Color(0.956863, 0.560784, 0.976471, 1)
 position = Vector2(468, 369.822)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_7v8ss")
@@ -134,6 +337,7 @@ frame_progress = 0.0
 input = "right"
 
 [node name="Road" type="Sprite2D" parent="."]
+modulate = Color(0.411765, 0.623529, 0.854902, 1)
 position = Vector2(394.435, 241.312)
 scale = Vector2(1.81503, 1.75892)
 texture = ExtResource("7_krgi3")
@@ -229,6 +433,36 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_b6yt1")
 }
+
+[node name="hyein" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(-451, -48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15_m73o4")
+
+[node name="minji" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(177, 1004)
+scale = Vector2(0.25, 0.267)
+texture = ExtResource("16_1u5vj")
+
+[node name="haerin" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(2707, -552)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_3f45j")
+
+[node name="hanni" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(-493, 478)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_atjhj")
+
+[node name="danielle" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(1062, 999)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("19_g1ct4")
+
+[node name="group" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(748, -569)
+scale = Vector2(1.972, 2.101)
+texture = ExtResource("20_fv4dy")
 
 [connection signal="visibility_changed" from="Success" to="Success" method="_on_visibility_changed"]
 [connection signal="pressed" from="Success/Button" to="Success" method="_on_button_pressed"]

@@ -19,9 +19,9 @@ var song_position_in_beats = 0
 var last_spawned_beat = 0
 var sec_per_beat = 60.0 / bpm
 
-var spawn_1_beat = 0
+var spawn_1_beat = 1
 var spawn_2_beat = 0
-var spawn_3_beat = 1
+var spawn_3_beat = 0
 var spawn_4_beat = 0
 
 var lane = 0
@@ -33,8 +33,8 @@ var instance
 func _ready():
 	randomize()
 	$Success.visible = false
-	#$Conductor.play_with_beat_offset(7)
-	$Conductor.play_from_beat(1060,5)
+	$Conductor.play_with_beat_offset(7)
+	#$Conductor.play_from_beat(1060,5)
 	$Conductor.measure.connect(_on_Conductor_measure)
 	$Conductor.beat.connect(_on_Conductor_beat)
 	print("starting")
@@ -56,25 +56,30 @@ func _on_Conductor_measure(position):
 		_spawn_notes(spawn_4_beat)
 
 func _on_Conductor_beat(position):
-	$Beat.text = str(position)
+	$Beat.text = str(position/2)
 	song_position_in_beats = position
-	if song_position_in_beats > 20*2:
+	if song_position_in_beats > 22*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 1
 	if song_position_in_beats > 50*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 0
+	if song_position_in_beats > 80*2:
 		spawn_1_beat = 2
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 1
-	if song_position_in_beats > 98*2:
+	if song_position_in_beats > 100*2:
+		$animationPlayer.play("fly")
 		spawn_1_beat = 2
-		spawn_2_beat = 0
+		spawn_2_beat = 2
 		spawn_3_beat = 1
-		spawn_4_beat = 0
+		spawn_4_beat = 2
 	if song_position_in_beats > 112*2:
-		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 3
 		spawn_2_beat = 2
 		spawn_3_beat = 1
@@ -95,7 +100,6 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 1
 		spawn_4_beat = 2
 	if song_position_in_beats > 180*2:
-		$AnimationPlayer.play("reset")
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 2
@@ -121,13 +125,12 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 1
 		spawn_4_beat = 2
 	if song_position_in_beats > 300*2:
-		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 1
 		spawn_2_beat = 3
 		spawn_3_beat = 2
 		spawn_4_beat = 3
 	if song_position_in_beats > 336*2:
-		$AnimationPlayer.play("reset")
+		$animationPlayer.play("group_circle")
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1
@@ -138,6 +141,7 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 1
 		spawn_4_beat = 1
 	if song_position_in_beats > 420*2:
+		$animationPlayer.play("fly")
 		spawn_1_beat = 3
 		spawn_2_beat = 2
 		spawn_3_beat = 2
@@ -172,6 +176,7 @@ func _spawn_notes(to_spawn):
 	if to_spawn > 0:
 		lane = randi() % 3
 		instance = note.instantiate()
+		instance.change_color("ff4cd4")
 		instance.initialize(lane)
 		add_child(instance)
 	#if spawning 2 notes
@@ -180,6 +185,7 @@ func _spawn_notes(to_spawn):
 			rand = randi() % 3
 		lane = rand
 		instance = note.instantiate()
+		instance.change_color(Color.YELLOW_GREEN)
 		instance.initialize(lane)
 		add_child(instance)
 

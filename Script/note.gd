@@ -60,3 +60,6 @@ func destroy(score):
 
 func _on_death_timer_timeout():
 	queue_free()
+	
+func change_color(color):
+	$AnimatedSprite2D.modulate = color

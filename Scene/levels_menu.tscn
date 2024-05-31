@@ -277,7 +277,6 @@ theme_override_font_sizes/font_size = 100
 text = "Lvl1"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/GridContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Lvl2" type="Button" parent="CanvasLayer/GridContainer/MarginContainer2"]

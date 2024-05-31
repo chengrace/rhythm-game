@@ -3,6 +3,8 @@
 extends Node2D
 
 var note = load("res://Scene/note.tscn")
+var rng = RandomNumberGenerator.new()
+var current_seed
 
 @export var bpm = 125
 var score = 0
@@ -31,13 +33,20 @@ var instance
 
 
 func _ready():
-	randomize()
+	#randomize()
+	custom_randomize()
+	#print(current_seed)
 	$Success.visible = false
 	$Conductor.play_with_beat_offset(7)
-	#$Conductor.play_from_beat(1060,5)
+	#$Conductor.play_from_beat(112*2,8)
 	$Conductor.measure.connect(_on_Conductor_measure)
 	$Conductor.beat.connect(_on_Conductor_beat)
-	print("starting")
+	#print("starting")
+
+func custom_randomize():
+	current_seed = int(Time.get_ticks_msec() % int(1e9))
+	rng.seed = current_seed
+	#446,458, 465
 
 func _input(event):
 	if event.is_action("escape"):
@@ -63,15 +72,15 @@ func _on_Conductor_beat(position):
 		spawn_4_beat = 0
 	if song_position_in_beats > 20*2:
 		spawn_1_beat = 1
-		spawn_2_beat = 1
-		spawn_3_beat = 1
-		spawn_4_beat = 0
-	if song_position_in_beats > 50*2:
-		spawn_1_beat = 2
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 1
-	if song_position_in_beats > 98*2:
+	if song_position_in_beats > 52*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 0
+		spawn_4_beat = 1
+	if song_position_in_beats > 94*2:
 		spawn_1_beat = 2
 		spawn_2_beat = 0
 		spawn_3_beat = 1
@@ -82,31 +91,31 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 2
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 126*2:
+	if song_position_in_beats > 128*2:
 		spawn_1_beat = 1
-		spawn_2_beat = 2
+		spawn_2_beat = 1
+		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 140*2:
+		spawn_1_beat = 3
+		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	if song_position_in_beats > 132*2:
-		spawn_1_beat = 3
-		spawn_2_beat = 2
-		spawn_3_beat = 3
-		spawn_4_beat = 3
 	if song_position_in_beats > 162*2:
 		spawn_1_beat = 2
-		spawn_2_beat = 2
+		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
 	if song_position_in_beats > 180*2:
 		$AnimationPlayer.play("reset")
 		spawn_1_beat = 1
 		spawn_2_beat = 0
-		spawn_3_beat = 2
+		spawn_3_beat = 1
 		spawn_4_beat = 0
 	if song_position_in_beats > 195*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
-		spawn_3_beat = 2
+		spawn_3_beat = 0
 		spawn_4_beat = 1	
 	if song_position_in_beats > 228*2:
 		spawn_1_beat = 1

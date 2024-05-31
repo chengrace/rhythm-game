@@ -58,7 +58,7 @@ func play_from_beat(beat, offset):
 	measure_position = beat % measures
 
 func _on_start_timer_timeout():
-	print("counting into song")
+	#print("counting into song")
 	song_position_in_beats += 1
 	if song_position_in_beats < beats_before_start - 1:
 		$StartTimer.start()
