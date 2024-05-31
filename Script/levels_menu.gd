@@ -11,3 +11,7 @@ func _on_back_button_pressed():
 
 func _on_lvl_1_pressed():
 	get_tree().change_scene_to_file("res://Scene/level_one.tscn")
+
+
+func _on_lvl_2_pressed():
+	get_tree().change_scene_to_file("res://Scene/level_two.tscn")

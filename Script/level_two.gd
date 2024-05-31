@@ -40,10 +40,8 @@ func _ready():
 	print("starting")
 
 func _input(event):
-	#if event.is_action("escape"):
-		#if get_tree().change_scene("res://Scenes/Menu.tscn") != OK:
-			#print ("Error changing scene to Menu")
-	pass
+	if event.is_action("escape"):
+		PauseMenu.show_pause_menu()
 
 func _on_Conductor_measure(position):
 	if position == 1:
@@ -65,8 +63,8 @@ func _on_Conductor_beat(position):
 		spawn_4_beat = 1
 	if song_position_in_beats > 50*2:
 		spawn_1_beat = 1
-		spawn_2_beat = 0
-		spawn_3_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 0
 		spawn_4_beat = 0
 	if song_position_in_beats > 80*2:
 		spawn_1_beat = 2
@@ -74,7 +72,7 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 0
 		spawn_4_beat = 1
 	if song_position_in_beats > 100*2:
-		$animationPlayer.play("fly")
+		$AnimationPlayer.play("fly")
 		spawn_1_beat = 2
 		spawn_2_beat = 2
 		spawn_3_beat = 1
@@ -169,6 +167,7 @@ func _on_Conductor_beat(position):
 		#Global.okay = okay
 		#Global.missed = missed
 		$Success.visible = true
+		$Success/Label.text = "Congratulations. You scored: " + str(score)
 		get_tree().paused = true
 
 func _spawn_notes(to_spawn):
@@ -185,7 +184,7 @@ func _spawn_notes(to_spawn):
 			rand = randi() % 3
 		lane = rand
 		instance = note.instantiate()
-		instance.change_color(Color.YELLOW_GREEN)
+		instance.change_color("f420ff")
 		instance.initialize(lane)
 		add_child(instance)
 

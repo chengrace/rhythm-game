@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Rhythm-game"
+config/name="rhythm-game"
 run/main_scene="res://Scene/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://Assets/nj/0.webp"
 
 [autoload]
 

@@ -177,6 +177,7 @@ func _on_Conductor_beat(position):
 		#Global.okay = okay
 		#Global.missed = missed
 		$Success.visible = true
+		$Success/Label.text = "Congratulations. You scored: " + str(score)
 		get_tree().paused = true
 
 func _spawn_notes(to_spawn):
