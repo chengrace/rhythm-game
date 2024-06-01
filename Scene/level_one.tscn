@@ -99,6 +99,8 @@ _data = {
 position = Vector2(-219, -190)
 scale = Vector2(1.972, 2.101)
 script = ExtResource("1_h88a5")
+arrow_color_pressed = Color(1, 0.941176, 0.666667, 1)
+note_color = Color(0.380392, 0.321569, 0.572549, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 84.0
@@ -106,9 +108,10 @@ offset_top = 73.0
 offset_right = 127.0
 offset_bottom = 118.0
 scale = Vector2(14.4881, 7.63583)
-color = Color(0.152941, 0.152941, 0.329412, 1)
+color = Color(0.25098, 0.188235, 0.458824, 1)
 
 [node name="ArrowLeft" parent="." instance=ExtResource("2_cd6b1")]
+modulate = Color(0.14902, 0.0901961, 0.345098, 1)
 position = Vector2(324, 370)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tt5ma")
@@ -117,6 +120,7 @@ frame_progress = 0.0
 input = "left"
 
 [node name="ArrowUp" parent="." instance=ExtResource("2_cd6b1")]
+modulate = Color(0.14902, 0.0901961, 0.345098, 1)
 position = Vector2(394, 370)
 scale = Vector2(1.5, 1.5)
 frame = 0
@@ -124,6 +128,7 @@ frame_progress = 0.0
 input = "up"
 
 [node name="ArrowRight" parent="." instance=ExtResource("2_cd6b1")]
+modulate = Color(0.14902, 0.0901961, 0.345098, 1)
 position = Vector2(468, 369.822)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1mcld")
@@ -132,16 +137,18 @@ frame_progress = 0.0
 input = "right"
 
 [node name="Road" type="Sprite2D" parent="."]
+modulate = Color(0.0784314, 0.027451, 0.231373, 1)
 position = Vector2(394.435, 241.312)
 scale = Vector2(1.81503, 1.75892)
 texture = ExtResource("7_krgi3")
 
-[node name="Label" type="Label" parent="."]
+[node name="Score" type="Label" parent="."]
 offset_left = 115.0
 offset_top = 94.24
 offset_right = 155.0
 offset_bottom = 117.24
 theme = ExtResource("8_fal3k")
+theme_override_colors/font_color = Color(0.533333, 0.486275, 0.686275, 1)
 theme_override_fonts/font = ExtResource("9_u7wa6")
 theme_override_font_sizes/font_size = 40
 
@@ -151,7 +158,7 @@ offset_top = 122.322
 offset_right = 155.593
 offset_bottom = 145.322
 theme = ExtResource("8_fal3k")
-theme_override_colors/font_color = Color(0.913725, 0.368627, 0.482353, 1)
+theme_override_colors/font_color = Color(1, 0.945098, 0.666667, 1)
 theme_override_fonts/font = ExtResource("9_u7wa6")
 theme_override_font_sizes/font_size = 30
 

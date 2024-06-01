@@ -7,6 +7,9 @@ var rng = RandomNumberGenerator.new()
 var current_seed
 
 @export var bpm = 125
+@export var arrow_color: Color = "13073b"
+@export var arrow_color_pressed: Color = "fff1aa"
+@export var note_color: Color = "887CAF"
 var score = 0
 var combo = 0
 
@@ -37,11 +40,20 @@ func _ready():
 	custom_randomize()
 	#print(current_seed)
 	$Success.visible = false
-	$Conductor.play_with_beat_offset(7)
-	#$Conductor.play_from_beat(112*2,8)
+	#$Conductor.play_with_beat_offset(7)
+	$Conductor.play_from_beat(228*2,7)
 	$Conductor.measure.connect(_on_Conductor_measure)
 	$Conductor.beat.connect(_on_Conductor_beat)
+	set_colors()
 	#print("starting")
+	
+func set_colors():
+	$ArrowLeft.original_color = arrow_color
+	$ArrowUp.original_color = arrow_color
+	$ArrowRight.original_color = arrow_color
+	$ArrowLeft.pressed_color = arrow_color_pressed
+	$ArrowUp.pressed_color = arrow_color_pressed
+	$ArrowRight.pressed_color = arrow_color_pressed
 
 func custom_randomize():
 	current_seed = int(Time.get_ticks_msec() % int(1e9))
@@ -86,7 +98,6 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 1
 		spawn_4_beat = 0
 	if song_position_in_beats > 112*2:
-		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 3
 		spawn_2_beat = 2
 		spawn_3_beat = 1
@@ -101,7 +112,8 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	if song_position_in_beats > 162*2:
+	if song_position_in_beats > 160*2:
+		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 2
 		spawn_2_beat = 1
 		spawn_3_beat = 1
@@ -122,24 +134,33 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 0
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	if song_position_in_beats > 252*2:
-		spawn_1_beat = 3
+	if song_position_in_beats > 260*2:
+		$AnimationPlayer.play("color_show")
+		spawn_1_beat = 2
 		spawn_2_beat = 2
-		spawn_3_beat = 3
-		spawn_4_beat = 2
-	if song_position_in_beats > 270*2:
-		spawn_1_beat = 1
-		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	if song_position_in_beats > 300*2:
-		$AnimationPlayer.play("color_show")
-		spawn_1_beat = 1
-		spawn_2_beat = 3
+	if song_position_in_beats > 280*2:
+		spawn_1_beat = 2
+		spawn_2_beat = 1
 		spawn_3_beat = 2
-		spawn_4_beat = 3
+		spawn_4_beat = 1
+	if song_position_in_beats > 300*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 2
+		spawn_4_beat = 1
+	if song_position_in_beats > 320*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 2
+		spawn_4_beat = 1
+	if song_position_in_beats > 340*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 2
+		spawn_4_beat = 1
 	if song_position_in_beats > 336*2:
-		$AnimationPlayer.play("reset")
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1
@@ -186,6 +207,7 @@ func _spawn_notes(to_spawn):
 		lane = randi() % 3
 		instance = note.instantiate()
 		instance.initialize(lane)
+		instance.change_color(note_color, "D4C26A", "D4C26A", "D4C26A")
 		add_child(instance)
 	#if spawning 2 notes
 	if to_spawn > 1:
@@ -193,6 +215,7 @@ func _spawn_notes(to_spawn):
 			rand = randi() % 3
 		lane = rand
 		instance = note.instantiate()
+		instance.change_color(note_color, "D4C26A", "D4C26A", "D4C26A")
 		instance.initialize(lane)
 		add_child(instance)
 
@@ -213,7 +236,7 @@ func increment_score(by):
 	
 	
 	score += by * combo
-	$Label.text = str(score)
+	$Score.text = str(score)
 	if combo > 0:
 		$Combo.text = str(combo) + " combo!"
 		if combo > max_combo:
