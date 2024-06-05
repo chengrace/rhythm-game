@@ -7,13 +7,13 @@ var rng = RandomNumberGenerator.new()
 var current_seed
 
 @export var bpm = 125
-@export var arrow_color: Color = "13073b"
-@export var arrow_color_pressed: Color = "fff1aa"
-@export var note_color: Color = "887CAF"
-@export var perfect_color: Color = "13073b"
-@export var good_color: Color = "fff1aa"
-@export var ok_color: Color = "887CAF"
-@export var miss_color: Color = "887CAF"
+@export var arrow_color: Color = "2e0071"
+@export var arrow_color_pressed: Color = "fff6a4"
+@export var note_color: Color = "fff6a4"
+@export var perfect_color: Color = "ceacff"
+@export var good_color: Color = "ceacff"
+@export var ok_color: Color = "ceacff"
+@export var miss_color: Color = "ceacff"
 
 var score = 0
 var combo = 0
@@ -43,7 +43,7 @@ var instance
 func _ready():
 	#randomize()
 	custom_randomize()
-	#print(current_seed)
+	print(current_seed)
 	$Success.visible = false
 	$Conductor.play_with_beat_offset(7)
 	#$Conductor.play_from_beat(228*2,7)
@@ -63,7 +63,8 @@ func set_colors():
 func custom_randomize():
 	current_seed = int(Time.get_ticks_msec() % int(1e9))
 	rng.seed = current_seed
-	#446,458, 465
+	#446,458, 465, 506
+	#522!
 
 func _input(event):
 	if event.is_action("escape"):
@@ -103,22 +104,23 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 1
 		spawn_4_beat = 0
 	if song_position_in_beats > 112*2:
+		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 3
 		spawn_2_beat = 2
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 128*2:
+	if song_position_in_beats > 130*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 140*2:
+	if song_position_in_beats > 145*2:
+		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 3
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
 	if song_position_in_beats > 160*2:
-		$AnimationPlayer.play("color_show")
 		spawn_1_beat = 2
 		spawn_2_beat = 1
 		spawn_3_beat = 1

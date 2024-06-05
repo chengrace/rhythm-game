@@ -9,9 +9,9 @@ var note = load("res://Scene/note.tscn")
 @export var arrow_color_pressed: Color = "e5f5c4"
 @export var note_color: Color = "c985ab"
 @export var perfect_color: Color = "13073b"
-@export var good_color: Color = "fff1aa"
-@export var ok_color: Color = "887CAF"
-@export var miss_color: Color = "887CAF"
+@export var good_color: Color = "13073b"
+@export var ok_color: Color = "13073b"
+@export var miss_color: Color = "13073b"
 
 var score = 0
 var combo = 0
@@ -130,17 +130,17 @@ func _on_Conductor_beat(position):
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 2
-		spawn_4_beat = 1	
+		spawn_4_beat = 0	
 	elif song_position_in_beats < 252*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1
-		spawn_4_beat = 2
+		spawn_4_beat = 0
 	elif song_position_in_beats < 270*2:
-		spawn_1_beat = 3
-		spawn_2_beat = 2
-		spawn_3_beat = 3
-		spawn_4_beat = 2
+		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 0
+		spawn_4_beat = 0
 	elif song_position_in_beats < 300*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
@@ -152,7 +152,7 @@ func _on_Conductor_beat(position):
 		spawn_3_beat = 2
 		spawn_4_beat = 3
 	elif song_position_in_beats < 396*2:
-		$animationPlayer.play("group_circle")
+		$AnimationPlayer.play("group_circle")
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1

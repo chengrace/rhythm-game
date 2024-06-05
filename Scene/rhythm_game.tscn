@@ -100,7 +100,6 @@ position = Vector2(-219, -190)
 scale = Vector2(1.97244, 2.10101)
 script = ExtResource("1_ql54a")
 bpm = 252
-perfect_color = Color(0.807843, 0.67451, 1, 1)
 good_color = Color(0.694118, 0.490196, 1, 1)
 ok_color = Color(0.231373, 0, 0.576471, 1)
 miss_color = Color(0.180392, 0, 0.443137, 1)

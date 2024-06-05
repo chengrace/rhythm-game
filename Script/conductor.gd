@@ -23,10 +23,11 @@ func _ready():
 	
 func _physics_process(_delta):
 	if playing:
-		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
-		song_position -= AudioServer.get_output_latency()
-		song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
-		_report_beat()
+		var time = get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
+		if time > song_position:
+			song_position = time
+			song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
+			_report_beat()
 
 func _report_beat():
 	# bc we call report beat every frame so we might be on the same beat

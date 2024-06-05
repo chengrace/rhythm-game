@@ -304,6 +304,9 @@ bpm = 250
 arrow_color = Color(0.964706, 0, 0.545098, 1)
 arrow_color_pressed = Color(0.984314, 1, 0.952941, 1)
 note_color = Color(0.980392, 0.592157, 0.811765, 1)
+perfect_color = Color(0.92549, 1, 0.776471, 1)
+good_color = Color(0.92549, 1, 0.776471, 1)
+ok_color = Color(0.92549, 1, 0.776471, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 91.2779
