@@ -8,6 +8,11 @@ var note = load("res://Scene/note.tscn")
 @export var arrow_color: Color = "882e61"
 @export var arrow_color_pressed: Color = "e5f5c4"
 @export var note_color: Color = "c985ab"
+@export var perfect_color: Color = "13073b"
+@export var good_color: Color = "fff1aa"
+@export var ok_color: Color = "887CAF"
+@export var miss_color: Color = "887CAF"
+
 var score = 0
 var combo = 0
 
@@ -37,10 +42,11 @@ func _ready():
 	randomize()
 	$Success.visible = false
 	$Conductor.play_with_beat_offset(7)
-	#$Conductor.play_from_beat(1060,5)
+	#$Conductor.play_from_beat(96,5)
 	$Conductor.measure.connect(_on_Conductor_measure)
 	$Conductor.beat.connect(_on_Conductor_beat)
 	set_colors()
+	$AnimationPlayer.play("reset")
 	#print("starting")
 	
 func set_colors():
@@ -68,111 +74,111 @@ func _on_Conductor_measure(position):
 func _on_Conductor_beat(position):
 	$Beat.text = str(position/2)
 	song_position_in_beats = position
-	if song_position_in_beats > 22*2:
+	if song_position_in_beats < 22*2:
+		spawn_1_beat = 1
+		spawn_2_beat = 0
+		spawn_3_beat = 0
+		spawn_4_beat = 0
+	elif song_position_in_beats < 50*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 1
-	elif song_position_in_beats > 50*2:
+	elif song_position_in_beats < 80*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 0
 		spawn_4_beat = 0
-	elif song_position_in_beats > 80*2:
+	elif song_position_in_beats < 96*2:
 		spawn_1_beat = 2
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 1
-	elif song_position_in_beats > 96*2:
+	elif song_position_in_beats < 112*2:
 		$AnimationPlayer.play("fly")
 		spawn_1_beat = 2
-		spawn_2_beat = 2
+		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	elif song_position_in_beats > 112*2:
-		spawn_1_beat = 3
-		spawn_2_beat = 2
-		spawn_3_beat = 1
+	elif song_position_in_beats < 120*2:
+		spawn_1_beat = 0
+		spawn_2_beat = 1
+		spawn_3_beat = 0
 		spawn_4_beat = 1
-	elif song_position_in_beats > 120*2:
+	elif song_position_in_beats < 130*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1
 		spawn_4_beat = 0
-	elif song_position_in_beats > 130*2:
+	elif song_position_in_beats < 170*2:
 		spawn_1_beat = 2
 		spawn_2_beat = 2
 		spawn_3_beat = 1
 		spawn_4_beat = 0
-	elif song_position_in_beats > 170*2:
+	elif song_position_in_beats < 180*2:
 		$AnimationPlayer.play("reset")
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 0
 		spawn_4_beat = 1
-	elif song_position_in_beats > 180*2:
+	elif song_position_in_beats < 195*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 2
 		spawn_4_beat = 0
-	elif song_position_in_beats > 195*2:
+	elif song_position_in_beats < 228*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 2
 		spawn_4_beat = 1	
-	elif song_position_in_beats > 228*2:
+	elif song_position_in_beats < 252*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	elif song_position_in_beats > 252*2:
+	elif song_position_in_beats < 270*2:
 		spawn_1_beat = 3
 		spawn_2_beat = 2
 		spawn_3_beat = 3
 		spawn_4_beat = 2
-	elif song_position_in_beats > 270*2:
+	elif song_position_in_beats < 300*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 2
-	elif song_position_in_beats > 300*2:
+	elif song_position_in_beats < 336*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 3
 		spawn_3_beat = 2
 		spawn_4_beat = 3
-	elif song_position_in_beats > 336*2:
+	elif song_position_in_beats < 396*2:
 		$animationPlayer.play("group_circle")
 		spawn_1_beat = 1
 		spawn_2_beat = 0
 		spawn_3_beat = 1
 		spawn_4_beat = 0
-	if song_position_in_beats > 396*2:
+	elif song_position_in_beats > 420*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	elif song_position_in_beats > 420*2:
+	elif song_position_in_beats < 483*2:
 		$animationPlayer.play("fly")
 		spawn_1_beat = 3
 		spawn_2_beat = 2
 		spawn_3_beat = 2
 		spawn_4_beat = 3
-	elif song_position_in_beats > 483*2:
+	elif song_position_in_beats < 527*2:
 		spawn_1_beat = 1
 		spawn_2_beat = 2
 		spawn_3_beat = 3
 		spawn_4_beat = 2
-	elif song_position_in_beats > 527*2:
+	elif song_position_in_beats < 530*2:
 		spawn_1_beat = 0
 		spawn_2_beat = 2
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	elif song_position_in_beats > 530*2:
-		spawn_1_beat = 0
-		spawn_2_beat = 0
-		spawn_3_beat = 0
-		spawn_4_beat = 0
-	elif song_position_in_beats > 538*2:
+	elif song_position_in_beats < 538*2:
 		#Global.set_score(score)
 		#Global.combo = max_combo
 		#Global.great = great
@@ -188,7 +194,7 @@ func _spawn_notes(to_spawn):
 	if to_spawn > 0:
 		lane = randi() % 3
 		instance = note.instantiate()
-		instance.change_color(note_color, "CFEA9A", "CFEA9A", "CFEA9A")
+		instance.change_color(note_color, perfect_color, good_color, ok_color, miss_color)
 		instance.initialize(lane)
 		add_child(instance)
 	#if spawning 2 notes
@@ -197,7 +203,7 @@ func _spawn_notes(to_spawn):
 			rand = randi() % 3
 		lane = rand
 		instance = note.instantiate()
-		instance.change_color(note_color, "7B9E36", "CFEA9A", "CFEA9A")
+		instance.change_color(note_color, perfect_color, good_color, ok_color, miss_color)
 		instance.initialize(lane)
 		add_child(instance)
 

@@ -66,6 +66,6 @@ func _on_start_timer_timeout():
 		$StartTimer.wait_time = $StartTimer.wait_time - (AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency())
 		$StartTimer.start()
 	else:
-		play()
+		play(0)
 		$StartTimer.stop()
 	_report_beat()

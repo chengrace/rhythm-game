@@ -10,6 +10,11 @@ var current_seed
 @export var arrow_color: Color = "13073b"
 @export var arrow_color_pressed: Color = "fff1aa"
 @export var note_color: Color = "887CAF"
+@export var perfect_color: Color = "13073b"
+@export var good_color: Color = "fff1aa"
+@export var ok_color: Color = "887CAF"
+@export var miss_color: Color = "887CAF"
+
 var score = 0
 var combo = 0
 
@@ -40,8 +45,8 @@ func _ready():
 	custom_randomize()
 	#print(current_seed)
 	$Success.visible = false
-	#$Conductor.play_with_beat_offset(7)
-	$Conductor.play_from_beat(228*2,7)
+	$Conductor.play_with_beat_offset(7)
+	#$Conductor.play_from_beat(228*2,7)
 	$Conductor.measure.connect(_on_Conductor_measure)
 	$Conductor.beat.connect(_on_Conductor_beat)
 	set_colors()
@@ -207,7 +212,7 @@ func _spawn_notes(to_spawn):
 		lane = randi() % 3
 		instance = note.instantiate()
 		instance.initialize(lane)
-		instance.change_color(note_color, "D4C26A", "D4C26A", "D4C26A")
+		instance.change_color(note_color, perfect_color, good_color, ok_color, miss_color)
 		add_child(instance)
 	#if spawning 2 notes
 	if to_spawn > 1:
@@ -215,7 +220,7 @@ func _spawn_notes(to_spawn):
 			rand = randi() % 3
 		lane = rand
 		instance = note.instantiate()
-		instance.change_color(note_color, "D4C26A", "D4C26A", "D4C26A")
+		instance.change_color(note_color, perfect_color, good_color, ok_color, miss_color)
 		instance.initialize(lane)
 		add_child(instance)
 

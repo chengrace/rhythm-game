@@ -70,6 +70,5 @@ func _on_okay_area_area_exited(area):
 		okay = false
 		current_note = null
 
-
 func _on_push_timer_timeout():
 	modulate = original_color

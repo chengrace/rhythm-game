@@ -283,7 +283,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("7_r26k4")
 theme_override_font_sizes/font_size = 100
-text = "Lvl 2"
+text = "Lvl2"
 
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/GridContainer"]
 visible = false

@@ -22,11 +22,8 @@ func _physics_process(delta):
 	if !hit:
 		position.y += speed * delta
 		if position.y > MAX_Y: #note reaches bottom of screen
-			#$DeathTimer.start()
-			#$Node2D.position = Vector2(0, -20)
-			#$Node2D/Label.text = "MISS"
-			#$Node2D/Label.modulate = miss_color
-			queue_free()
+			destroy(-1)
+			#queue_free()
 			get_parent().reset_combo() #means player missed
 	else:
 		$Node2D.position.y -= speed * delta
@@ -62,6 +59,10 @@ func destroy(score):
 	elif score == 1:
 		$Node2D/Label.text = "OK"
 		$Node2D/Label.modulate = ok_color
+	elif score < 0:
+		#$Node2D.position += Vector2(0, -5)
+		$Node2D/Label.text = "MISS"
+		$Node2D/Label.modulate = miss_color
 
 func _on_death_timer_timeout():
 	queue_free()
